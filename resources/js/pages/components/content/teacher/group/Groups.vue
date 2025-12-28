@@ -2,13 +2,13 @@
     <div class="groups">
         <header>
             <p>max: {{ group.groupMaker.maxMembers }}</p>
-            <button class="add" @click="() => toNew()">
+            <button class="add" @click="() => toNew()" dusk="add">
                 <img src="https://www.iconpacks.net/icons/2/free-plus-icon-3107-thumb.png" alt="plus">
             </button>
         </header>
         <ul>
             <li v-for="(g, name) in groups" :key="name">
-                <button @click="() => toEdit(name)">
+                <button @click="() => toEdit(name)" :dusk="`edit-${name}`">
                     <img src="https://www.svgrepo.com/show/42233/pencil-edit-button.svg" alt="pencil">
                 </button>
                 <span>{{ name }}</span>

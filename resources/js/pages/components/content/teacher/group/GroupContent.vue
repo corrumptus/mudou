@@ -1,13 +1,13 @@
 <template>
     <ContentHeader>
-        <button class="edit" @click="toEdit">
+        <button class="edit" dusk="edit" @click="toEdit">
             <img src="https://www.svgrepo.com/show/42233/pencil-edit-button.svg" alt="pencil">
         </button>
     </ContentHeader>
     <div class="group">
         <div class="buttons">
-            <button @click="isGroups = !isGroups" :style="{ borderBottomColor: isGroups ? '#e1e1e1' : ''  }">Grupos</button>
-            <button @click="isGroups = !isGroups" :style="{ borderBottomColor: !isGroups ? '#e1e1e1' : ''  }">Usuários</button>
+            <button @click="isGroups = !isGroups" :style="{ borderBottomColor: isGroups ? '#e1e1e1' : ''  }" dusk="to-groups">Grupos</button>
+            <button @click="isGroups = !isGroups" :style="{ borderBottomColor: !isGroups ? '#e1e1e1' : ''  }" dusk="to-users">Usuários</button>
         </div>
         <div class="content">
             <Groups v-if="isGroups" :group="group" :toNew="toNewGroup" :toEdit="toEditGroup" />
