@@ -4,21 +4,21 @@
         <div class="infos">
             <div class="title-attr">
                 <label for="title" class="title">Nome</label>
-                <input id="title" :value="group.title" @input="change">
+                <input id="title" dusk="title" :value="group.title" @input="change">
             </div>
             <div class="maxMembers">
                 <label for="maxMembers" class="title">Quantidade de membros</label>
-                <input id="maxMembers" :value="group.maxMembers" @input="change">
+                <input id="maxMembers" dusk="maxMembers" :value="group.maxMembers" @input="change">
             </div>
             <div class="themes">
                 <label class="title">Temas</label>
                 <div class="new-theme">
-                    <input id="new-theme" placeholder="Digite um novo tema" :value="newTheme" @input="e => newTheme = (e.target as HTMLInputElement).value">
-                    <button @click="addTheme" class="bt-new-theme">Adicionar</button>
+                    <input id="new-theme" dusk="new-theme" placeholder="Digite um novo tema" :value="newTheme" @input="e => newTheme = (e.target as HTMLInputElement).value">
+                    <button @click="addTheme" class="bt-new-theme" dusk="bt-new-theme">Adicionar</button>
                 </div>
                 <ul>
                     <li v-for="theme in Object.keys(group.themes)" :key="theme" class="theme-show">
-                        <button class="remove-theme" @click="() => removeTheme(theme)">
+                        <button class="remove-theme" @click="() => removeTheme(theme)" :dusk="`remove-${theme}`">
                             <img src="https://cdn-icons-png.flaticon.com/512/1828/1828774.png" alt="x">
                         </button>
                         <div class="theme">{{ theme }}</div>
@@ -27,8 +27,8 @@
             </div>
         </div>
         <div class="buttons">
-            <button class="confirm" @click="sendHomework">Salvar</button>
-            <button class="cancel" @click="goBack">Cancelar</button>
+            <button class="confirm" @click="sendHomework" dusk="confirm">Salvar</button>
+            <button class="cancel" @click="goBack" dusk="cancel">Cancelar</button>
         </div>
     </div>
 </template>
