@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -11,48 +11,39 @@ use Illuminate\Support\Str;
 class UserFactory extends Factory
 {
     /**
-     * The current password being used by the factory.
-     */
-    protected static ?string $password;
-
-    /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
     public function definition(): array
     {
+        $userTypes = [
+            'is_admin' => fake()->boolean(),
+            'is_teacher' => fake()->boolean(),
+            'is_student' => fake()->boolean(),
+            'is_monitor' => fake()->boolean()
+        ];
+
+        if (array_search(true, $userTypes) == false)
+            $userTypes[array_keys($userTypes)[rand(0, 3)]] = true;
+
+        if ($userTypes['is_monitor'] == true && $userTypes['is_student'] == false)
+            $userTypes['is_student'] = true;
+
         return [
+            'id' => rand(),
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= 'password',
-            'remember_token' => Str::random(10),
-            'two_factor_secret' => Str::random(10),
-            'two_factor_recovery_codes' => Str::random(10),
-            'two_factor_confirmed_at' => now(),
+            'password' => Hash::make('password'),
+            'cpf' => fake()->unique()->numerify(str_repeat('#', 11)),
+            'birth_date' => fake()->date(),
+            'is_admin' => $userTypes['is_admin'],
+            'is_teacher' => $userTypes['is_teacher'],
+            'is_student' => $userTypes['is_student'],
+            'is_monitor' => $userTypes['is_monitor'],
+            'profile_picture_hash' => null,
+            'is_first_access' => false,
+            'is_active' => true
         ];
-    }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
-    public function unverified(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
-    }
-
-    /**
-     * Indicate that the model does not have two-factor authentication configured.
-     */
-    public function withoutTwoFactor(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'two_factor_secret' => null,
-            'two_factor_recovery_codes' => null,
-            'two_factor_confirmed_at' => null,
-        ]);
     }
 }
