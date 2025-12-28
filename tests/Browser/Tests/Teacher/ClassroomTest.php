@@ -6,6 +6,7 @@ use App\Helpers\JWTHelper;
 use App\Models\ClassElement;
 use App\Models\DayClass;
 use App\Models\Classroom;
+use App\Models\Group;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Laravel\Dusk\Browser;
@@ -151,6 +152,14 @@ class ClassroomTest extends DuskTestCase
 
     public function testShouldRedirectToNewHomeworkPageCorrectly() {
         $this->browse(function (Browser $browser) {
+            foreach ($this->elements as $e) {
+                if ($e->type == "group")
+                    Group::factory()->create([
+                        "id" => $e->element_id,
+                        "title" => $e->name
+                    ]);
+            }
+
             $page = $this->getPage($browser);
 
             $classId = $this->classes[0]->id;
