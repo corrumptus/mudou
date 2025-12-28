@@ -2,6 +2,7 @@
     <div class="img-input" @click.stop="click">
         <input
             :id="id"
+            :dusk="id"
             type="file"
             accept=".png, .jpg, .jpeg, .webp"
             ref="img"

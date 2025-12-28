@@ -4,29 +4,30 @@
         <div class="infos">
             <div class="name">
                 <label for="name" class="title">Nome</label>
-                <input id="name" :value="user.name" @input="change">
+                <input id="name" dusk="name" :value="user.name" @input="change">
             </div>
             <div v-if="isEdit" class="password">
                 <label for="password" class="title">Senha</label>
-                <input id="password" :value="user.password" @input="change">
+                <input id="password" dusk="password" :value="user.password" @input="change">
             </div>
             <div class="email">
                 <label for="email" class="title">Email</label>
-                <input id="email" :value="user.email" @input="change">
+                <input id="email" dusk="email" :value="user.email" @input="change">
             </div>
             <div class="birth-date">
                 <label for="birthDate" class="title">Data de nascimento</label>
-                <input type="date" id="birthDate" :value="user.birthDate" @input="change">
+                <input type="date" id="birthDate" dusk="birthDate" :value="user.birthDate" @input="change">
             </div>
             <div class="cpf">
                 <label for="cpf" class="title">CPF</label>
-                <input id="cpf" :value="user.cpf" @input="change">
+                <input id="cpf" dusk="cpf" :value="user.cpf" @input="change">
             </div>
             <div class="types">
                 <span class="title">Tipos</span>
                 <div>
                     <input
                         id="isAdmin"
+                        dusk="admin"
                         type="checkbox"
                         :checked="user.isAdmin"
                         @change="change"    
@@ -36,6 +37,7 @@
                 <div>
                     <input
                         id="isTeacher"
+                        dusk="teacher"
                         type="checkbox"
                         :checked="user.isTeacher"
                         @change="change"    
@@ -45,6 +47,7 @@
                 <div>
                     <input
                         id="isStudent"
+                        dusk="student"
                         type="checkbox"
                         :checked="user.isStudent"
                         @change="change"    
@@ -54,6 +57,7 @@
                 <div>
                     <input
                         id="isMonitor"
+                        dusk="monitor"
                         type="checkbox"
                         :checked="user.isMonitor"
                         @change="change"    
@@ -67,21 +71,21 @@
             </div>
             <div class="roles">
                 <span class="title">Permissões</span>
-                <input :value="filter" @input="input" placeholder="Filtro">
+                <input dusk="roleFilter" :value="filter" @input="input" placeholder="Filtro">
                 <ul>
                     <li
                         v-for="role in filteredRoles"
                         :key="role.id"
                     >
-                        <input type="checkbox" :id="`role-${role.id}`" :checked="role.id in user.roles">
+                        <input type="checkbox" :id="`role-${role.id}`" :dusk="`role-${role.id}`" :checked="role.id in user.roles">
                         <label :for="`role-${role.id}`">{{ role.name }}</label>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="buttons">
-            <button class="confirm" @click="sendUser">Salvar</button>
-            <button class="cancel">Cancelar</button>
+            <button class="confirm" dusk="confirm" @click="sendUser">Salvar</button>
+            <button class="cancel" dusk="cancel">Cancelar</button>
         </div>
     </div>
 </template>
