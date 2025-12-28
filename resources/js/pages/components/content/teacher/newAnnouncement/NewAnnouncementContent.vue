@@ -7,6 +7,7 @@
                 <input
                     :value="announcement.title"
                     @input="e => announcement.title = e.target.value"
+                    dusk="title"
                 >
             </div>
             <div class="description">
@@ -14,13 +15,14 @@
                 <textarea
                     :value="announcement.description"
                     @input="e => announcement.description = e.target.value"
+                    dusk="description"
                 >
                 </textarea>
             </div>
         </div>
         <div class="buttons">
-            <button class="create" @click="() => send(announcement)">Criar</button>
-            <button class="cancel" @click="() => window.history.back()">Cancelar</button>
+            <button class="create" @click="() => send(announcement)" dusk="create">Criar</button>
+            <button class="cancel" @click="() => window.history.back()" dusk="cancel">Cancelar</button>
         </div>
     </div>
 </template>
