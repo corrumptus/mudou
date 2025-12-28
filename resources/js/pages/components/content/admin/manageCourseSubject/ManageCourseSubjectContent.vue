@@ -4,16 +4,17 @@
         <div class="infos">
             <div class="name">
                 <label for="name" class="title">Nome</label>
-                <input id="name" :value="courseSubject.name" @input="change">
+                <input id="name" dusk="name" :value="courseSubject.name" @input="change">
             </div>
             <div class="code">
                 <label for="code" class="title">Código</label>
-                <input id="code" :value="courseSubject.code" @input="change">
+                <input id="code" dusk="code" :value="courseSubject.code" @input="change">
             </div>
             <div class="course" v-if="!isEdit">
                 <label for="course" class="title">Curso</label>
                 <select
                     id="course"
+                    dusk="course"
                     :value="courseSubject.course.id"
                     @change="change"
                 >
@@ -29,8 +30,8 @@
             </div>
         </div>
         <div class="buttons">
-            <button class="confirm" @click="sendCourse">Salvar</button>
-            <button class="cancel">Cancelar</button>
+            <button class="confirm" dusk="confirm" @click="sendCourse">Salvar</button>
+            <button class="cancel" dusk="cancel">Cancelar</button>
         </div>
     </div>
 </template>
