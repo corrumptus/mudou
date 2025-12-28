@@ -1,20 +1,48 @@
 <?php
+
+use App\Http\Middleware\Web\UserFirstAccessRedirect;
+use App\Http\Middleware\Web\UserHomePageSelectionMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets;
+use App\Http\Middleware\Api\ApiAuthenticationService;
+use App\Http\Middleware\Web\WebAuthenticationService;
 
-return Application::configure(basePath: dirname(__DIR__))
+$dir = dirname(__DIR__);
+
+return Application::configure(basePath: $dir)
     ->withRouting(
-        web: __DIR__.'/../routes/web.php',
-        commands: __DIR__.'/../routes/console.php',
+        web: [
+            "$dir/routes/web/admin.php",
+            "$dir/routes/web/general.php",
+            "$dir/routes/web/teacher.php",
+            "$dir/routes/web/student.php"
+        ],
+        api: [
+            "$dir/routes/api/admin.php",
+            "$dir/routes/api/general.php",
+            "$dir/routes/api/teacher.php",
+            "$dir/routes/api/student.php"
+        ],
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware) {
-        $middleware->web(append: [
+    ->withMiddleware(fn (Middleware $middleware) => $middleware
+        ->web(append: [
             AddLinkHeadersForPreloadedAssets::class,
-        ]);
-    })
+            WebAuthenticationService::class,
+            UserFirstAccessRedirect::class,
+            UserHomePageSelectionMiddleware::class
+        ])
+
+        ->api([
+            ApiAuthenticationService::class
+        ])
+
+        ->encryptCookies(except: [
+            WebAuthenticationService::$COOKIE_NAME,
+        ])
+    )
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })
