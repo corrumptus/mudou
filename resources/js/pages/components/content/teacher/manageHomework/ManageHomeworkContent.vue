@@ -4,12 +4,13 @@
         <div class="infos">
             <div class="title-attr">
                 <label for="title" class="title">Nome</label>
-                <input id="title" :value="homework.title" @input="change">
+                <input id="title" dusk="title" :value="homework.title" @input="change">
             </div>
             <div class="description">
                 <label for="description" class="title">Descrição</label>
                 <textarea
                     id="description"
+                    dusk="description"
                     rows="3"
                     :value="homework.description"
                     @input="change"
@@ -22,6 +23,7 @@
                         <input
                             type="date"
                             id="beginDate"
+                            dusk="begin-date"
                             :value="homework.beginDate"
                             @change="change"
                         >
@@ -31,6 +33,7 @@
                         <input
                             type="time"
                             id="beginTime"
+                            dusk="begin-time"
                             :value="homework.beginTime"
                             @change="change"
                         >
@@ -42,6 +45,7 @@
                         <input
                             type="date"
                             id="closeDate"
+                            dusk="close-date"
                             :value="homework.closeDate"
                             @change="change"
                         >
@@ -51,6 +55,7 @@
                         <input
                             type="time"
                             id="closeTime"
+                            dusk="close-time"
                             :value="homework.closeTime"
                             @change="change"
                         >
@@ -58,16 +63,16 @@
                 </div>
             </div>
             <div class="can-accept-after-close">
-                <input type="checkbox" id="canSendAfterClose" :checked="homework.canAcceptAfterClose" @change="change">
+                <input type="checkbox" id="canSendAfterClose" dusk="can-accept-after-close" :checked="homework.canAcceptAfterClose" @change="change">
                 <label for="canSendAfterClose">Permitir envio após fechamento</label>
             </div>
             <div class="group">
                 <div class="has-group">
-                    <input type="checkbox" id="hasGroup" :checked="homework.hasGroup" @change="change">
+                    <input type="checkbox" id="hasGroup" dusk="has-group" :checked="homework.hasGroup" @change="change">
                     <label for="hasGroup">Grupo</label>
                 </div>
                 <div v-if="homework.hasGroup" class="group-select">
-                    <select id="group" :value="homework.group" @change="change">
+                    <select id="group" dusk="group" :value="homework.group" @change="change">
                         <option value=""></option>
                         <option
                             v-for="group in groups"
@@ -80,7 +85,7 @@
             </div>
             <div class="text">
                 <div class="is-text">
-                    <input type="checkbox" id="isText" :checked="homework.isText" @change="change">
+                    <input type="checkbox" id="isText" dusk="is-text" :checked="homework.isText" @change="change">
                     <label for="isText">Texto</label>
                 </div>
                 <div v-if="homework.isText" class="amount-text">
@@ -88,6 +93,7 @@
                         type="number"
                         placeholder="Máx. caracteres"
                         id="maxAmountCaracteres"
+                        dusk="max-amount-caracteres"
                         :value="homework.maxAmountCaracteres"
                         @input="change"
                     >
@@ -95,7 +101,7 @@
             </div>
             <div class="file">
                 <div class="is-file">
-                    <input type="checkbox" id="isFile" :checked="homework.isFile" @change="change">
+                    <input type="checkbox" id="isFile" dusk="is-file" :checked="homework.isFile" @change="change">
                     <label for="isFile">Arquivo</label>
                 </div>
                 <div v-if="homework.isFile" class="amount-file">
@@ -103,6 +109,7 @@
                         type="number"
                         placeholder="Máx. arquivos"
                         id="maxAmountFiles"
+                        dusk="max-amount-files"
                         :value="homework.maxAmountFiles"
                         @input="change"
                     >
@@ -110,12 +117,12 @@
             </div>
             <div v-if="homework.isFile" class="file-types">
                 <label for="fileTypes" class="title">Extensões de Arquivo</label>
-                <input id="fileTypes" :value="homework.fileTypes" @input="change">
+                <input id="fileTypes" dusk="file-types" :value="homework.fileTypes" @input="change">
             </div>
         </div>
         <div class="buttons">
-            <button class="confirm" @click="sendHomework">Salvar</button>
-            <button class="cancel">Cancelar</button>
+            <button class="confirm" dusk="confirm" @click="sendHomework">Salvar</button>
+            <button class="cancel" dusk="cancel">Cancelar</button>
         </div>
     </div>
 </template>
