@@ -24,7 +24,7 @@
             >
                 Tipo
             </span>
-            <select :value="selectedType" @change="selectUserType">
+            <select :value="selectedType" @change="selectUserType" dusk="type-filter">
                 <option value=""></option>
                 <option value="isAdmin">Administrador</option>
                 <option value="isTeacher">Professor</option>
@@ -56,9 +56,9 @@
             >
                 Nome
             </span>
-            <input :value="typedName" @input="typeName">
+            <input :value="typedName" @input="typeName" dusk="name-filter">
         </div>
-        <button @click="toNewPerson" class="add">
+        <button @click="toNewPerson" class="add" dusk="add">
             <img src="https://www.iconpacks.net/icons/2/free-plus-icon-3107-thumb.png" alt="plus">
         </button>
     </header>
@@ -90,7 +90,7 @@
                 </th>
             </thead>
             <tbody>
-                <tr v-for="(user, i) in renderedUsers" :key="user.id">
+                <tr v-for="(user, i) in renderedUsers" :key="user.id" dusk="person">
                     <td>{{ i+1 }}</td>
                     <td>
                         <div class="img">
