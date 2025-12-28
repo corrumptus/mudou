@@ -8,10 +8,10 @@
             :isCollapsed="collapsedClasses[i]"
             :switchCollapse="() => switchCollapse(i)"
         />
-        <button @click="toAvisos">Avisos</button>
-        <button @click="toForum">Fórum</button>
-        <button @click="toParticipantes">Participantes</button>
-        <button @click="toAnotacoes">Anotações</button>
+        <button @click="toAvisos" dusk="announcements">Avisos</button>
+        <button @click="toForum" dusk="forums">Fórum</button>
+        <button @click="toParticipantes" dusk="participants">Participantes</button>
+        <button @click="toAnotacoes" dusk="anotations">Anotações</button>
     </nav>
 </template>
 

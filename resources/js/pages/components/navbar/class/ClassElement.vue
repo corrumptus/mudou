@@ -2,6 +2,7 @@
     <li
         :style="{ backgroundColor: selected ? '#555555' : 'transparent' }"
         @click="() => toElement(element.type, element.elementId)"
+        dusk="nav-class-element"
     >
         <img
             :src="imgType.url"
