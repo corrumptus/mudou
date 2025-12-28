@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Web\Teacher;
 
-use App\Data\Classroom\UserSemesterCourseSubject;
+use App\Data\Classroom\Classroom as ClassroomDTO;
 use Auth;
 use Inertia\Inertia;
 use App\Models\Classroom;
@@ -28,7 +28,7 @@ class CourseSubjectController
         return Inertia::render('routes/General/CourseSubject', [
             "courseSubjects" => array_map(
                 fn ($classroom) =>
-                    UserSemesterCourseSubject::fromClassroomModel($classroom),
+                    ClassroomDTO::fromCourseSubject($classroom),
                 $classrooms->all()
             ),
             "userTypes" => [
