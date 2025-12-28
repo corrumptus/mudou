@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Web\Student\AnotationsController;
+use App\Http\Controllers\Web\Student\AnotationController;
 use App\Http\Controllers\Web\Student\CourseSubjectController;
 use App\Http\Controllers\Web\Student\ClassroomController;
 use App\Http\Controllers\Web\Student\DiscussionController;
@@ -45,25 +45,25 @@ Route::get(
 
 Route::get(
     '/course/{courseName}/subject/{subjectName}/classroom/{classroomId}/anotations',
-    [ AnotationsController::class, 'indexClassroom' ]
+    [ AnotationController::class, 'indexClassroom' ]
 )->name('student.classroomAnotations');
 
 Route::get(
     '/course/{courseName}/subject/{subjectName}/classroom/{classroomId}/anotations/self',
-    [ AnotationsController::class, 'self' ]
+    [ AnotationController::class, 'self' ]
 )->name('student.selfAnotation');
 
 Route::get(
     '/course/{courseName}/subject/{subjectName}/classroom/{classroomId}/anotations/self/edit',
-    [ AnotationsController::class, 'selfEdit' ]
+    [ AnotationController::class, 'selfEdit' ]
 )->name('student.editSelfAnotation');
 
 Route::get(
     '/course/{courseName}/subject/{subjectName}/classroom/{classroomId}/anotations/monitor/{userEmail}',
-    [ AnotationsController::class, 'monitor' ]
+    [ AnotationController::class, 'monitor' ]
 )->name('student.monitorAnotation');
 
 Route::get(
-    '/course/{courseName}/anotations/{userEmail}',
-    [ AnotationsController::class, 'public' ]
+    '/course/{courseName}/anotations/{userId}',
+    [ AnotationController::class, 'public' ]
 )->name('student.publicAnotation');
