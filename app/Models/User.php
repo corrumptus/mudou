@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, TwoFactorAuthenticatable;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'cpf',
+        'birth_date',
+        'is_admin',
+        'is_teacher',
+        'is_student',
+        'is_monitor',
+        'has_profile_picture'
     ];
 
     /**
@@ -31,10 +37,9 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'two_factor_secret',
-        'two_factor_recovery_codes',
-        'remember_token',
     ];
+
+    public $timestamps = false;
 
     /**
      * Get the attributes that should be cast.
@@ -44,9 +49,28 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
+            'birth_date' => 'date',
             'password' => 'hashed',
-            'two_factor_confirmed_at' => 'datetime',
         ];
+    }
+
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function permissions(): BelongsToMany
+    {
+        return $this->belongsToMany(Permission::class);
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }
