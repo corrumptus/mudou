@@ -5,6 +5,7 @@
             <li
                 v-for="(element, i) in classElement.elements"
                 @click="() => toElement(classElement.id, element.type, element.elementId)"
+                dusk="class-element"
             >
                 <img
                     :src="imgTypes[i].url"

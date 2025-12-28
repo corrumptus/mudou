@@ -1,21 +1,21 @@
 <template>
     <ContentHeader>
         <div class="classroom-buttons">
-            <button @click="toAvisos">
+            <button @click="toAvisos" dusk="header-announcements">
                 <img
                     src="https://cdn-icons-png.flaticon.com/512/584/584648.png"
                     alt="megaphone"
                     class="announcement"
                 >
             </button>
-            <button @click="toForums">
+            <button @click="toForums" dusk="header-forums">
                 <img
                     src="https://cdn-icons-png.flaticon.com/512/1166/1166128.png"
                     alt="2 people discussing"
                     class="forun"
                 >
             </button>
-            <button @click="toAnotacoes">
+            <button @click="toAnotacoes" dusk="header-anotations">
                 <img
                     src="https://cdn-icons-png.flaticon.com/512/1821/1821189.png"
                     alt="block of notes with a pencil"
