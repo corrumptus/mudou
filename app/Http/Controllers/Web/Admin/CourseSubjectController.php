@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
-use App\Data\Course\ReferenceCourse;
+use App\Data\Course\Course as CourseDTO;
 use App\Models\Course;
 use App\Data\CourseSubject\CourseSubject as CourseSubjectDTO;
 use Auth;
@@ -17,7 +17,7 @@ class CourseSubjectController
 
         return Inertia::render('routes/Admin/ManageCourseSubject', [
             "courses" => array_reduce(Course::get()->all(), function ($carry, $item) {
-                $carry[$item->id] = ReferenceCourse::fromCourseModel($item);
+                $carry[$item->id] = CourseDTO::fromCourseModelIncomplete($item);
 
                 return $carry;
             }, []),
@@ -74,7 +74,7 @@ class CourseSubjectController
                 :
                 CourseSubjectDTO::fromCourseSubjectModel($requestedSubject),
             "courses" => array_reduce(Course::get()->all(), function ($carry, $item) {
-                $carry[$item->id] = ReferenceCourse::fromCourseModel($item);
+                $carry[$item->id] = CourseDTO::fromCourseModelIncomplete($item);
 
                 return $carry;
             }, []),
