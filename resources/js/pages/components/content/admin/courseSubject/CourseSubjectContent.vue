@@ -1,10 +1,10 @@
 <template>
     <ContentHeader>
-        <button class="edit" @click="toEditCourseSubject">
+        <button class="edit" dusk="edit" @click="toEditCourseSubject">
             <img src="https://www.svgrepo.com/show/42233/pencil-edit-button.svg" alt="pencil">
         </button>
     </ContentHeader>
-    <div class="infos">
+    <div class="infos" dusk="infos">
         <div class="grid">
             <div class="name">
                 <span class="title">Nome</span>
