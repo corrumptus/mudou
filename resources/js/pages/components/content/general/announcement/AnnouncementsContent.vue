@@ -1,7 +1,7 @@
 <template>
     <ContentHeader v-if="type === 'student'" />
     <ContentHeader v-else>
-        <button @click="toNewAnnouncement">
+        <button @click="toNewAnnouncement" dusk="add">
             <img src="https://www.iconpacks.net/icons/2/free-plus-icon-3107-thumb.png" alt="plus">
         </button>
     </ContentHeader>
@@ -9,6 +9,7 @@
         <ul>
             <li
                 v-for="(a, i) in announcements"
+                dusk="announcement"
                 :key="a.id"
             >
                 <div
