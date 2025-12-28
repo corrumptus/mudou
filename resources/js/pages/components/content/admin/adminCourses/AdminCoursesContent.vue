@@ -24,9 +24,9 @@
             >
                 Nome
             </span>
-            <input :value="typedName" @input="typeName">
+            <input :value="typedName" @input="typeName" dusk="name-filter">
         </div>
-        <button @click="toNewCourse" class="add">
+        <button @click="toNewCourse" class="add" dusk="add">
             <img src="https://www.iconpacks.net/icons/2/free-plus-icon-3107-thumb.png" alt="plus">
         </button>
     </header>
@@ -39,7 +39,7 @@
                 <th>Semestres</th>
             </thead>
             <tbody>
-                <tr v-for="(course, i) in renderedCourses" :key="course.id">
+                <tr v-for="(course, i) in renderedCourses" :key="course.id" dusk="course">
                     <td>{{ i+1 }}</td>
                     <td>{{ course.code }}</td>
                     <td @click="() => toCourse(course.name)">{{ course.name }}</td>
