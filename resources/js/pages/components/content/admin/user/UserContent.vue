@@ -1,6 +1,6 @@
 <template>
     <ContentHeader>
-        <button v-if="route === 'info'" class="edit" @click="toEditUser">
+        <button v-if="route === 'info'" class="edit" dusk="edit" @click="toEditUser">
             <img src="https://www.svgrepo.com/show/42233/pencil-edit-button.svg" alt="pencil">
         </button>
     </ContentHeader>

@@ -3,6 +3,7 @@
         <select
             :value="courseFilter"
             @select="e => selectCourse(e.target.value)"
+
         >
             <option value=""></option>
             <option
@@ -16,15 +17,18 @@
         <input
             :value="nameFilter"
             @input="e => typeName(e.target.value)"
+
         >
         <input
             :value="teacherFilter"
             @input="e => typeTeacher(e.target.value)"
+
         >
         <input
             type="time"
             :value="timeFilter"
             @input="e => typeTime(e.target.value)"
+
         >
     </div>
     <div class="classrooms">
