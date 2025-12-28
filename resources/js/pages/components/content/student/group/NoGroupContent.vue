@@ -9,11 +9,13 @@
                     placeholder="Nome"
                     :value="newGroup.name"
                     @input="e => newGroup.name = (e.target as HTMLInputElement).value"
+                    dusk="name"
                 />
                 <select
                     v-else
                     :value="newGroup.name"
                     @change="e => newGroup.name = (e.target as HTMLSelectElement).value"
+                    dusk="name"
                 >
                     <option
                         v-for="t in group.groupMaker.themes"
@@ -31,6 +33,7 @@
                         v-for="u in group.groupMaker.users"
                         @click.stop="() => selectUser(u.id)"
                         :key="u.id"
+                        dusk="member"
                     >
                         <div class="img">
                             <img :src="u.img" onerror="this.onerror=null; this.src='https://phoenixestimations.com/files/user_icon.png';">
@@ -45,7 +48,7 @@
                 </ul>
             </div>
             <div class="create">
-                <button @click="create">Criar</button>
+                <button @click="create" dusk="send">Criar</button>
             </div>
         </div>
         <div class="enter-group">
@@ -66,6 +69,7 @@
                         @click="() => requestEnter(name)"
                         class="requestEnter"
                         :id="`request-${name}`"
+                        dusk="request-enter"
                     >
                         Pedir para entrar
                     </button>

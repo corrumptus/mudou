@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="buttons">
-            <button class="cancel" @click="() => cancel()">Cancelar</button>
+            <button class="cancel" @click="() => cancel()" dusk="cancel">Cancelar</button>
         </div>
     </div>
 </template>

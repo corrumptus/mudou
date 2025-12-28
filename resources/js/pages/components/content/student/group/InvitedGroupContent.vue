@@ -48,8 +48,8 @@
             </div>
         </div>
         <div class="buttons">
-            <button class="accept" @click="() => accept()">Aceitar</button>
-            <button class="decline" @click="() => decline()">Recusar</button>
+            <button class="accept" @click="() => accept()" dusk="accept">Aceitar</button>
+            <button class="decline" @click="() => decline()" dusk="decline">Recusar</button>
         </div>
     </div>
 </template>

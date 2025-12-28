@@ -20,20 +20,20 @@
                 <div class="img"><img :src="u.img" onerror="this.onerror=null; this.src='https://phoenixestimations.com/files/user_icon.png';"></div>
                 <span>{{ u.name }}</span>
                 <div v-if="u.status === 'invited'" class="buttons">
-                    <button class="cancel" @click="() => cancel(u.id)">Cancelar</button>
+                    <button class="cancel" @click="() => cancel(u.id)" :dusk="`cancel-${u.id}`">Cancelar</button>
                 </div>
                 <div v-if="u.status === 'requesting'" class="buttons">
-                    <button class="accept" @click="() => accept(u.id)" title="Aceitar pedido">
+                    <button class="accept" @click="() => accept(u.id)" title="Aceitar pedido" :dusk="`accept-${u.id}`">
                         <img src="https://cdn-icons-png.flaticon.com/512/3388/3388530.png" alt="check">
                     </button>
-                    <button class="decline" @click="() => decline(u.id)" title="Recusar pedido">
+                    <button class="decline" @click="() => decline(u.id)" title="Recusar pedido" :dusk="`decline-${u.id}`">
                         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828774.png" alt="x">
                     </button>
                 </div>
             </li>
         </ul>
         <div class="button">
-            <button class="leave" @click="() => leave()">Sair do grupo</button>
+            <button class="leave" @click="() => leave()" dusk="leave">Sair do grupo</button>
         </div>
     </div>
 </template>
