@@ -24,7 +24,7 @@
             >
                 Nome
             </span>
-            <input :value="typedName" @input="typeName">
+            <input :value="typedName" @input="typeName" dusk="name-filter">
         </div>
         <div class="teacher-filter">
             <span
@@ -50,7 +50,7 @@
             >
                 Professor
             </span>
-            <input :value="typedTeacher" @input="typeTeacher">
+            <input :value="typedTeacher" @input="typeTeacher" dusk="teacher-filter">
         </div>
         <div class="course-filter">
             <span
@@ -76,9 +76,9 @@
             >
                 Curso
             </span>
-            <input :value="typedCourse" @input="typeCourse">
+            <input :value="typedCourse" @input="typeCourse" dusk="course-filter">
         </div>
-        <button @click="toNewClassroom" class="add">
+        <button @click="toNewClassroom" class="add" dusk="add">
             <img src="https://www.iconpacks.net/icons/2/free-plus-icon-3107-thumb.png" alt="plus">
         </button>
     </header>
@@ -94,7 +94,7 @@
                 <th>Curso</th>
             </thead>
             <tbody>
-                <tr v-for="(classroom, i) in renderedClassrooms" :key="classroom.id">
+                <tr v-for="(classroom, i) in renderedClassrooms" :key="classroom.id" dusk="classroom">
                     <td>{{ i+1 }}</td>
                     <td @click="() => toClassroom(classroom.subject.course.name, classroom.subject.name, classroom.id)">{{ classroom.subject.name }}</td>
                     <td><div class="multi-row"><span v-for="teacher in classroom.teachers" :key="teacher.id">{{ teacher.name }}</span></div></td>
