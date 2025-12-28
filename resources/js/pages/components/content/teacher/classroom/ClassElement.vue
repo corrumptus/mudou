@@ -1,10 +1,11 @@
 <template>
-    <div class="class">
+    <div class="class" dusk="class">
         <h3>Aula {{ index+1 }} - {{ classElement.name }}</h3>
         <ul>
             <li
                 v-for="(element, i) in classElement.elements"
                 @click="() => toElement(element.type, element.elementId)"
+                dusk="class-element"
             >
                 <img
                     :src="imgTypes[i].url"
@@ -16,6 +17,7 @@
         <button
             @click="click"
             class="to-new-class-element"
+            dusk="to-new-class-element"
         >
             <img
                 src="https://www.iconpacks.net/icons/2/free-plus-icon-3107-thumb.png"
@@ -34,6 +36,7 @@
                     top: `${position.top}px`,
                     left: `${position.left}px`
                 }"
+                dusk="menu"
             >
                 <button>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/File_alt_font_awesome.svg/512px-File_alt_font_awesome.svg.png" alt="file icon(paper with a folded tip)">
@@ -43,7 +46,7 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/341/341017.png" alt="2 pieces of a chain">
                     <span>Link</span>
                 </button>
-                <button @click="() => toNew(classElement.id, 'homework')">
+                <button @click="() => toNew(classElement.id, 'homework')" dusk="new-homework">
                     <img src="https://cdn-icons-png.flaticon.com/512/2196/2196468.png" alt="a book with a pencil on top of it">
                     <span>Tarefa</span>
                 </button>
@@ -51,7 +54,7 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/8940/8940602.png" alt="each letter of quiz in a box in a grid of 2x2">
                     <span>Quiz</span>
                 </button>
-                <button @click="() => toNew(classElement.id, 'group')">
+                <button @click="() => toNew(classElement.id, 'group')" dusk="new-group">
                     <img src="https://cdn-icons-png.flaticon.com/512/681/681443.png" alt="3 people">
                     <span>Grupo</span>
                 </button>
