@@ -6,7 +6,8 @@
                 <input
                     :type="show_password ? 'text' : 'password'"
                     placeholder="Senha"
-                    ref=
+                    ref="password"
+                    dusk="password"
                 />
                 <img
                     class="eye open"
@@ -14,6 +15,7 @@
                     @click="show_password = !show_password"
                     src="https://cdn-icons-png.flaticon.com/512/4893/4893771.png"
                     alt="open eye"
+                    dusk="eye.open"
                 >
                 <img
                     class="eye closed"
@@ -21,13 +23,15 @@
                     @click="show_password = !show_password"
                     src="https://cdn-icons-png.flaticon.com/512/9726/9726597.png"
                     alt="closed eye"
+                    dusk="eye.closed"
                 >
             </div>
             <div class="password">
                 <input
                     :type="show_confirm_password ? 'text' : 'password'"
                     placeholder="Senha"
-                    ref=
+                    ref="confirm_password"
+                    dusk="confirm_password"
                 />
                 <img
                     class="eye open"
@@ -35,6 +39,7 @@
                     @click="show_confirm_password = !show_confirm_password"
                     src="https://cdn-icons-png.flaticon.com/512/4893/4893771.png"
                     alt="open eye"
+                    dusk="eye.open"
                 >
                 <img
                     class="eye closed"
@@ -42,13 +47,14 @@
                     @click="show_confirm_password = !show_confirm_password"
                     src="https://cdn-icons-png.flaticon.com/512/9726/9726597.png"
                     alt="closed eye"
+                    dusk="eye.closed"
                 >
             </div>
-            <div v-if="error !== undefined" class="error">
+            <div v-if="error !== undefined" class="error" dusk="error">
                 {{ error }}
             </div>
             <div>
-                <button>Criar</button>
+                <button dusk="submit">Criar</button>
             </div>
             <div>
                 <p>duvidas? entre em contato pelo email:</p>
