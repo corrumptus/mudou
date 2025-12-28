@@ -4,8 +4,8 @@
         <div class="teachers">
             <h1>Professores</h1>
             <ul>
-                <li v-for="t in participants.teachers" :key="t.id">
-                    <button class="chat">
+                <li v-for="t in participants.teachers" :key="t.id" dusk="teacher">
+                    <button class="chat" dusk="chat">
                         <img src="https://cdn-icons-png.flaticon.com/512/151/151793.png" alt="a speech balloon" />
                     </button>
                     <div class="img">
@@ -18,8 +18,8 @@
         <div class="monitors">
             <h1>Monitores</h1>
             <ul>
-                <li v-for="m in participants.monitors" :key="m.id">
-                    <button class="chat">
+                <li v-for="m in participants.monitors" :key="m.id" dusk="monitor">
+                    <button class="chat" dusk="chat">
                         <img src="https://cdn-icons-png.flaticon.com/512/151/151793.png" alt="a speech balloon" />
                     </button>
                     <div class="img">
@@ -32,8 +32,8 @@
         <div class="students">
             <h1>Alunos</h1>
             <ul>
-                <li v-for="s in participants.students" :key="s.id">
-                    <button class="chat">
+                <li v-for="s in participants.students" :key="s.id" dusk="student">
+                    <button class="chat" dusk="chat">
                         <img src="https://cdn-icons-png.flaticon.com/512/151/151793.png" alt="a speech balloon" />
                     </button>
                     <div class="img">
