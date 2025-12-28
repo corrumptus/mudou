@@ -8,6 +8,7 @@
                     :value="classroom.subject.course.id"
                     @change="e => classroom.subject.course.id = e.target.value"
                     id="course"
+                    dusk="course"
                 >
                     <option value=""></option>
                     <option
@@ -25,6 +26,7 @@
                     :value="classroom.subject.id"
                     @change="e => classroom.subject.id = e.target.value"
                     id="courseSubject"
+                    dusk="courseSubject"
                 >
                     <option value=""></option>
                     <option
@@ -41,6 +43,7 @@
                 <input
                     type="date"
                     id="beginDate"
+                    dusk="beginDate"
                     :value="classroom.beginDate"
                     @input="change"
                 >
@@ -50,6 +53,7 @@
                 <input
                     type="date"
                     id="closeDate"
+                    dusk="closeDate"
                     :value="classroom.closeDate"
                     @input="change"
                 >
@@ -63,6 +67,7 @@
                             :value="newPeriod.dayOfTheWeek"
                             @change="e => newPeriod.dayOfTheWeek = e.target.value"
                             id="dayOfTheWeek"
+                            dusk="dayOfTheWeek"
                         >
                             <option value=""></option>
                             <option value="segunda-feira">Segunda-feira</option>
@@ -82,6 +87,7 @@
                                 :value="newPeriod.beginTime"
                                 @change="e => newPeriod.beginTime = e.target.value"
                                 id="beginTime"
+                                dusk="beginTime"
                             >
                         </div>
                         <div class="close-time">
@@ -91,11 +97,12 @@
                                 :value="newPeriod.closeTime"
                                 @change="e => newPeriod.closeTime = e.target.value"
                                 id="closeTime"
+                                dusk="closeTime"
                             >
                         </div>
                     </div>
                     <div class="button">
-                        <button @click="addPeriod" class="add-period">Adicionar</button>
+                        <button @click="addPeriod" class="add-period" dusk="newPeriod">Adicionar</button>
                     </div>
                 </div>
                 <div v-for="(period, i) in classroom.periods" :key="JSON.stringify(period)" class="period-show">
@@ -119,6 +126,7 @@
                         <input
                             type="checkbox"
                             :checked="teacher.id in classroom.teachers"
+                            dusk="teacher"
                         >
                     </li>
                 </ul>
@@ -133,6 +141,7 @@
                         <input
                             type="checkbox"
                             :checked="monitor.id in classroom.monitors"
+                            dusk="monitor"
                         >
                     </li>
                 </ul>
@@ -147,14 +156,15 @@
                         <input
                             type="checkbox"
                             :checked="student.id in classroom.students"
+                            dusk="student"
                         >
                     </li>
                 </ul>
             </div>
         </div>
         <div class="buttons">
-            <button class="confirm" @click="sendCourse">Salvar</button>
-            <button class="cancel">Cancelar</button>
+            <button class="confirm" dusk="confirm" @click="sendCourse">Salvar</button>
+            <button class="cancel" dusk="cancel">Cancelar</button>
         </div>
     </div>
 </template>
