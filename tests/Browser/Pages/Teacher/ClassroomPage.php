@@ -157,8 +157,8 @@ class ClassroomPage extends Page
         $this->browser->waitForLocationDecoded($waitUrl);
     }
 
-    public function clickNewHomework(int $classIndex, string $waitUrl) {
-        $this->browser->mouseover("[dusk=\"class\"]:nth-child($classIndex)");
+    public function clickNewHomework(int $classPosition, string $waitUrl) {
+        $this->browser->mouseover("[dusk=\"class\"]:nth-child($classPosition)");
 
         sleep(1);
 
