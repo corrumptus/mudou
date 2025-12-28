@@ -10,6 +10,7 @@
             <ul>
                 <li
                     v-for="c in discussion.comments"
+                    dusk="comments"
                     :key="c.id"
                 >
                     <Comment
@@ -24,8 +25,9 @@
                 placeholder="Comentário"
                 :value="comment"
                 @input="e => comment = (e.target as HTMLInputElement).value"
+                dusk="write-comment"
             />
-            <button @click="() => send(comment)">
+            <button @click="() => send(comment)" dusk="send-comment">
                 <img src="https://static.thenounproject.com/png/105496-200.png" alt="airplane paper">
             </button>
         </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="comment">
+    <div class="comment" dusk="comment">
         <div class="person">
             <div class="img">
                 <img :src="person.img" onerror="this.onerror=null; this.src='https://phoenixestimations.com/files/user_icon.png';">
