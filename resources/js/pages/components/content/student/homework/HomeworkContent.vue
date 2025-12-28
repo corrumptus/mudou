@@ -25,6 +25,7 @@
                 placeholder="responda aqui"
                 :value="response.text"
                 @input="changeText"
+                dusk="text"
             ></textarea>
         </div>
         <div v-if="homework.isFile" class="file">
@@ -34,10 +35,11 @@
                 :accept="homework.fileTypes"
                 :multiple="homework.maxAmountFiles > 1"
                 @change="changeFile"
+                dusk="file"
             >
         </div>
         <div v-if="timerRef === 'endsIn' || homework.canAcceptAfterClose" class="send">
-            <button @click="() => answer(response)">Enviar</button>
+            <button @click="() => answer(response)" dusk="send">Enviar</button>
         </div>
     </div>
 </template>
