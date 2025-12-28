@@ -3,30 +3,35 @@
         <button
             v-if="userTypes.isAdmin"
             :style="{ color: page === 'Administração' ? '#00ffff' : 'white' }"
+            dusk="admin"
         >
             Administração
         </button>
         <button
             v-if="userTypes.isTeacher"
             :style="{ color: page === 'Professor' ? '#00ffff' : 'white' }"
+            dusk="teacher"
         >
             Professor
         </button>
         <button
             v-if="userTypes.isStudent"
             :style="{ color: page === 'Disciplinas' ? '#00ffff' : 'white' }"
+            dusk="subjects"
         >
             Disciplinas
         </button>
         <button
             v-if="userTypes.isMonitor"
             :style="{ color: page === 'Monitoria' ? '#00ffff' : 'white' }"
+            dusk="monitors"
         >
             Monitoria
         </button>
         <button
             v-if="userTypes.isStudent"
             :style="{ color: page === 'Anotações' ? '#00ffff' : 'white' }"
+            dusk="anotations"
         >
             Anotações
         </button>
