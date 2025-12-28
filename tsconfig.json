@@ -34,7 +34,19 @@
         "moduleResolution": "bundler" /* Specify how TypeScript looks up a file from a given module specifier. */,
         // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
         "paths": {
-            /* Specify a set of entries that re-map imports to additional lookup locations. */ "@/*": ["./resources/js/*"],
+            /* Specify a set of entries that re-map imports to additional lookup locations. */
+            "@pages/*": ["./resources/js/pages/routes/*"],
+            "@layout/*": ["./resources/js/pages/layout/*"],
+            "@header/*": ["./resources/js/pages/components/header/*"],
+            "@navbar/*": ["./resources/js/pages/components/navbar/*"],
+            "@content/*": ["./resources/js/pages/components/content/*"],
+            "@sidebar/*": ["./resources/js/pages/components/sidebar/*"],
+            "@hooks/*": ["./resources/js/hooks/*"],
+            "@data/*": ["./resources/js/data/*"],
+            "@request/*": ["./resources/js/request/*"],
+            "@utils/*": ["./resources/js/utils/*"],
+            "@type/*": ["./resources/js/types/*"],
+            "@/*": ["./resources/js/*"]
         },
         // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
         // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
@@ -122,5 +134,5 @@
         "resources/js/**/*.d.ts",
         "resources/js/**/*.tsx", 
         "resources/js/**/*.vue"
-    ]
+, "resources/js/data/data.js"    ]
 }
