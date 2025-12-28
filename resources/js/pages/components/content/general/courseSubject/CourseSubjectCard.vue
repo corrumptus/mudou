@@ -3,6 +3,7 @@
         class="card"
         :style="{ backgroundColor: subject.color }"
         @click="goToClassroom"
+        dusk="subject"
     >
         <div class="code">
             <span>{{ subject.code }}</span>
