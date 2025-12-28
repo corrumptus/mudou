@@ -4,20 +4,20 @@
         <div class="infos">
             <div class="name">
                 <label for="name" class="title">Nome</label>
-                <input id="name" :value="course.name" @input="change">
+                <input id="name" dusk="name" :value="course.name" @input="change">
             </div>
             <div class="code">
                 <label for="code" class="title">Código</label>
-                <input id="code" :value="course.code" @input="change">
+                <input id="code" dusk="code" :value="course.code" @input="change">
             </div>
             <div class="amount-semesters">
                 <label for="amountSemesters" class="title">Quantidade de semestres</label>
-                <input type="number" id="amountSemesters" :value="course.amountSemesters" @input="change">
+                <input type="number" id="amountSemesters" dusk="amountSemesters" :value="course.amountSemesters" @input="change">
             </div>
         </div>
         <div class="buttons">
-            <button class="confirm" @click="sendCourse">Salvar</button>
-            <button class="cancel">Cancelar</button>
+            <button class="confirm" dusk="confirm" @click="sendCourse">Salvar</button>
+            <button class="cancel" dusk="cancel">Cancelar</button>
         </div>
     </div>
 </template>
