@@ -1,6 +1,6 @@
 <template>
     <ContentHeader v-if="type === 'student'">
-        <button @click="toNewDiscussion">
+        <button @click="toNewDiscussion" dusk="add">
             <img src="https://www.iconpacks.net/icons/2/free-plus-icon-3107-thumb.png" alt="plus">
         </button>
     </ContentHeader>
@@ -10,6 +10,7 @@
             <li
                 v-for="d in discussions"
                 @click="() => toDiscussion(d.id)"
+                dusk="discussion"
                 :key="d.id"
             >
                 <div class="owner">
