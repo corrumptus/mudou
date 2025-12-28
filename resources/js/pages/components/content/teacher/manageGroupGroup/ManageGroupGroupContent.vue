@@ -7,6 +7,7 @@
                 <input
                     :value="group.name"
                     @input="e => group.name = (e.target as HTMLInputElement).value"
+                    dusk="name"
                 >
             </div>
             <div class="members">
@@ -16,6 +17,7 @@
                         v-for="u in groupMaker.users"
                         @click.stop="() => selectUser(u.id)"
                         :key="u.id"
+                        dusk="member"
                     >
                         <div class="img">
                             <img :src="u.img" onerror="this.onerror=null; this.src='https://phoenixestimations.com/files/user_icon.png';">
@@ -31,8 +33,8 @@
             </div>
         </div>
         <div class="buttons">
-            <button class="create" @click="send">Criar</button>
-            <button class="cancel" @click="goBack">Cancelar</button>
+            <button class="create" @click="send" dusk="create">Criar</button>
+            <button class="cancel" @click="goBack" dusk="cancel">Cancelar</button>
         </div>
     </div>
 </template>
