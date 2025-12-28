@@ -24,7 +24,7 @@ class CreateGroupGroupTest extends DuskTestCase
     {
         parent::setUp();
 
-        $user = User::factory()->create();
+        $user = User::factory()->create([ "is_teacher" => true ]);
 
         $this->token = JWTHelper::encode($user);
 
