@@ -3,30 +3,35 @@
         <button
             :style="{ color: route === 'people' ? '#00ff03' : 'white' }"
             @click="() => select('/admin/people')"
+            dusk="people"
         >
             Pessoas
         </button>
         <button
             :style="{ color: route === 'courses' ? '#00ff03' : 'white' }"
             @click="() => select('/admin/courses')"
+            dusk="courses"
         >
             Cursos
         </button>
         <button
             :style="{ color: route === 'subjects' ? '#00ff03' : 'white' }"
             @click="() => select('/admin/subjects')"
+            dusk="subjects"
         >
             Diciplinas
         </button>
         <button
             :style="{ color: route === 'classrooms' ? '#00ff03' : 'white' }"
             @click="() => select('/admin/classrooms')"
+            dusk="classrooms"
         >
             Turmas
         </button>
         <button
             :style="{ color: route === 'permissions' ? '#00ff03' : 'white' }"
             @click="() => select('Permissões')"
+            dusk="permissions"
         >
             Permissões
         </button>
