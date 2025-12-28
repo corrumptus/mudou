@@ -7,6 +7,7 @@
                     type="text"
                     placeholder="Email"
                     ref="email"
+                    dusk="email"
                 />
             </div>
             <div class="password">
@@ -14,6 +15,7 @@
                     :type="show_password ? 'text' : 'password'"
                     placeholder="Senha"
                     ref="password"
+                    dusk="password"
                 />
                 <img
                     class="eye open"
@@ -21,6 +23,7 @@
                     @click="show_password = !show_password"
                     src="https://cdn-icons-png.flaticon.com/512/4893/4893771.png"
                     alt="open eye"
+                    dusk="eye.open"
                 >
                 <img
                     class="eye closed"
@@ -28,13 +31,14 @@
                     @click="show_password = !show_password"
                     src="https://cdn-icons-png.flaticon.com/512/9726/9726597.png"
                     alt="closed eye"
+                    dusk="eye.closed"
                 >
             </div>
-            <div v-if="error !== undefined" class="error">
+            <div v-if="error !== undefined" class="error" dusk="error">
                 {{ error }}
             </div>
             <div>
-                <button>Entrar</button>
+                <button dusk="submit">Entrar</button>
             </div>
             <div>
                 <p>duvidas? entre em contato pelo email:</p>
