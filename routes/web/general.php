@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Web\General\AnnouncementsController;
+use App\Http\Controllers\Web\General\AnnouncementController;
 use App\Http\Controllers\Web\General\ChatController;
 use App\Http\Controllers\Web\General\LoginController;
 use App\Http\Controllers\Web\General\ParticipantsController;
@@ -19,7 +19,7 @@ Route::get(
 
 Route::get(
     '/course/{courseName}/subject/{subjectName}/classroom/{classroomId}/announcements',
-    AnnouncementsController::class
+    AnnouncementController::class
 )->name('student.avisos');
 
 Route::get(
