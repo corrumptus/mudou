@@ -41,7 +41,11 @@
             "@php artisan key:generate",
             "@php artisan migrate --force",
             "npm install",
-            "npm run build"
+            "npm run build",
+            "@php artisan jwt:secret"
+        ],
+        "setup:dusk": [
+            "@php artisan dusk:install"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
